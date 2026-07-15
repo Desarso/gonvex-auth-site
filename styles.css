@@ -1,0 +1,207 @@
+:root {
+  color-scheme: light;
+  --paper: #f2efe5;
+  --paper-deep: #e6dfce;
+  --ink: #102b27;
+  --ink-soft: #53635e;
+  --rule: rgba(16, 43, 39, 0.2);
+  --signal: #ef6a43;
+  --signal-dark: #a63f25;
+  font-family: "Avenir Next", "Century Gothic", Futura, sans-serif;
+  background: var(--ink);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background:
+    linear-gradient(rgba(16, 43, 39, 0.88), rgba(16, 43, 39, 0.96)),
+    repeating-linear-gradient(45deg, transparent 0 8px, rgba(255, 255, 255, .025) 8px 9px);
+}
+a { color: inherit; }
+
+.shell {
+  width: min(1160px, calc(100% - 32px));
+  min-height: calc(100vh - 32px);
+  margin: 16px auto;
+  overflow: hidden;
+  border-radius: 2px;
+  background:
+    radial-gradient(circle at 15% 12%, rgba(255, 255, 255, .8), transparent 28%),
+    linear-gradient(135deg, var(--paper), var(--paper-deep));
+  box-shadow: 0 30px 90px rgba(0, 0, 0, .28);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px clamp(24px, 5vw, 64px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: .76rem;
+  font-weight: 700;
+}
+
+.brand-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+}
+
+.nav { display: flex; gap: 22px; }
+.nav a {
+  color: var(--ink-soft);
+  font-size: .76rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.nav a:hover, .nav a:focus-visible { color: var(--signal-dark); }
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
+  min-height: 630px;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(64px, 10vw, 132px) clamp(28px, 7vw, 96px);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 22px;
+  color: var(--signal-dark);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.eyebrow::before { width: 36px; height: 2px; content: ""; background: var(--signal); }
+
+h1, h2 {
+  margin: 0;
+  font-family: "Iowan Old Style", Baskerville, Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -.04em;
+}
+h1 { max-width: 760px; font-size: clamp(4rem, 9vw, 8.6rem); line-height: .82; }
+h2 { margin-top: 52px; font-size: clamp(2rem, 5vw, 3.8rem); line-height: .98; }
+
+.lede {
+  max-width: 650px;
+  margin: 36px 0 0;
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.75;
+}
+
+.identity-note {
+  margin-top: 42px;
+  padding: 22px 24px;
+  border-left: 3px solid var(--signal);
+  background: rgba(255, 255, 255, .45);
+  font-family: "Iowan Old Style", Baskerville, Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.55;
+}
+
+.seal-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 430px;
+  padding: 40px;
+  color: var(--paper);
+  background: var(--ink);
+  position: relative;
+  isolation: isolate;
+}
+.seal-panel::before { position: absolute; inset: 18px; z-index: -1; content: ""; border: 1px solid rgba(242, 239, 229, .25); }
+
+.seal {
+  display: grid;
+  width: min(290px, 76vw);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(242, 239, 229, .58);
+  border-radius: 50%;
+  outline: 1px solid rgba(242, 239, 229, .2);
+  outline-offset: 9px;
+  text-align: center;
+  transform: rotate(-4deg);
+}
+.seal strong { display: block; font-family: Georgia, serif; font-size: clamp(5rem, 11vw, 8rem); font-weight: 400; line-height: .85; }
+.seal span { display: block; margin-top: 16px; color: #f2a187; font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--rule); }
+.step { min-height: 220px; padding: 38px clamp(24px, 4vw, 48px); border-right: 1px solid var(--rule); }
+.step:last-child { border-right: 0; }
+.step b { display: block; margin-bottom: 54px; color: var(--signal-dark); font-family: Georgia, serif; font-size: 1.1rem; font-weight: 400; }
+.step h3 { margin: 0 0 12px; font-family: Georgia, serif; font-size: 1.35rem; font-weight: 400; }
+.step p { margin: 0; color: var(--ink-soft); line-height: 1.6; }
+
+.document { max-width: 860px; padding: clamp(64px, 9vw, 112px) clamp(28px, 8vw, 100px) 100px; }
+.document h1 { max-width: none; font-size: clamp(3.7rem, 8vw, 7rem); }
+.document .updated { margin: 24px 0 60px; color: var(--signal-dark); font-size: .75rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.document h2 { margin-top: 48px; font-size: clamp(1.8rem, 4vw, 2.8rem); }
+.document p, .document li { color: var(--ink-soft); font-size: 1rem; line-height: 1.8; }
+.document ul { padding-left: 20px; }
+.document a { text-decoration-color: var(--signal); text-underline-offset: 4px; }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px clamp(24px, 5vw, 64px);
+  border-top: 1px solid var(--rule);
+  color: var(--ink-soft);
+  font-size: .76rem;
+  letter-spacing: .04em;
+}
+.footer-links { display: flex; gap: 20px; }
+.footer a:hover, .footer a:focus-visible { color: var(--signal-dark); }
+
+@media (max-width: 760px) {
+  .nav { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-copy { padding-top: 84px; padding-bottom: 84px; }
+  h1 { font-size: clamp(3.8rem, 20vw, 6.4rem); }
+  .steps { grid-template-columns: 1fr; }
+  .step { min-height: auto; border-right: 0; border-bottom: 1px solid var(--rule); }
+  .step b { margin-bottom: 28px; }
+  .footer { flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy > * { animation: arrive .7s both; }
+  .hero-copy > :nth-child(2) { animation-delay: .08s; }
+  .hero-copy > :nth-child(3) { animation-delay: .16s; }
+  .hero-copy > :nth-child(4) { animation-delay: .24s; }
+  .seal { animation: stamp .7s .2s both cubic-bezier(.2, .8, .2, 1); }
+  @keyframes arrive { from { opacity: 0; transform: translateY(18px); } }
+  @keyframes stamp { from { opacity: 0; transform: rotate(-12deg) scale(1.12); } }
+}

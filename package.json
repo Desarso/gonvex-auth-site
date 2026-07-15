@@ -1,0 +1,9 @@
+{
+  "name": "gonvex-auth-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test site.test.mjs"
+  }
+}
